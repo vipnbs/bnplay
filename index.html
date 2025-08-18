@@ -21,7 +21,6 @@
     }
     h1 {
       font-size: 3rem;
-      letter-spacing: 5px;
       margin-bottom: 10px;
     }
     p {
@@ -67,11 +66,33 @@
     .music a:hover {
       color: #fff;
     }
+
+    /* Құсқандай жазу эффектісі */
+    .typing-effect {
+      overflow: hidden;
+      border-right: 2px solid #fff;
+      white-space: nowrap;
+      margin: 0 auto;
+      letter-spacing: 5px;
+      animation: 
+        typing 3s steps(40, end),
+        blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #fff; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>667 NBS</h1>
+    <h1 class="typing-effect">667 NBS</h1>
     <p>My name is Nurdaulet, I am 25 years old. I'm from Kazakhstan, and I love to play all kind of games but especially RTS, FPS and RPG.</p>
 
     <div class="links">
@@ -99,7 +120,5 @@ KEYBOARD: MCHOSE
       </div>
     </div>
   </div>
-</body>
-</html>
 </body>
 </html>
