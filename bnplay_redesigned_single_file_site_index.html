@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BNPLAY — Қауіпсіз ойын саудасы</title>
+  <meta name="description" content="BNPLAY — ойын заттары мен қызметтерін қауіпсіз саудалау платформасы. Қауіпсіз. Жылдам. Ыңғайлы." />
+  <style>
+    /* ======= ТЕМА АЙНЫМАЛЫЛАРЫ ======= */
+    :root{
+      --bg:#0e0f12;      /* фон */
+      --panel:#12141a;   /* карталар */
+      --text:#e8eaf0;    /* негізгі мәтін */
+      --muted:#a3abbb;   /* екінші деңгей */
+      --accent:#22ffd3;  /* акцент */
+      --accent-2:#18c8ab;/* hover */
+      --border:#242a39;  /* шекара */
+      --ring: 0 0 0 3px rgba(34,255,211,.22);
+    }
+    /* Монохром (қатаң қара-ақ) */
+    body.theme-mono{ --bg:#0b0b0c; --panel:#121212; --text:#efefef; --muted:#bdbdbd; --accent:#ffffff; --accent-2:#dcdcdc; --border:#222; }
+    /* Жарқын неон */
+    body.theme-neon{ --bg:#0b1116; --panel:#0f151d; --text:#eaf7ff; --muted:#97a9be; --accent:#27f1ff; --accent-2:#1ac6d2; --border:#1e2a39; }
+    /* Ашық (light) */
+    body.theme-light{ --bg:#f7f8fb; --panel:#ffffff; --text:#0f172a; --muted:#5b6475; --accent:#111827; --accent-2:#334155; --border:#e6e8ef; }
+
+    /* ======= БАЗАЛЫҚ ======= */
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background .25s ease, color .25s ease;
+    }
+    .container{max-width:1120px; margin:0 auto; padding:0 20px}
+    a{color:inherit}
+
+    /* ======= НАВБАР ======= */
+    .navbar{ position:sticky; top:0; z-index:50; backdrop-filter: blur(8px); background: color-mix(in oklab, var(--bg), transparent 20%); border-bottom:1px solid var(--border) }
+    .navbar .row{ display:flex; align-items:center; justify-content:space-between; padding:14px 0 }
+    .logo{ font-weight:800; letter-spacing:.5px; display:flex; gap:10px; align-items:center }
+    .logo-badge{ width:28px; height:28px; border-radius:8px; display:grid; place-items:center; background:var(--accent); color:#0a0d10; font-weight:900 }
+    .nav{ display:flex; gap:10px; align-items:center }
+    .nav a, .btn-ghost{ text-decoration:none; padding:8px 12px; border-radius:12px }
+    .nav a:hover{ color:var(--accent) }
+    .btn-ghost{ border:1px solid var(--border); background:var(--panel) }
+
+    /* Тақырып ауыстырғыш */
+    .themes{ display:flex; gap:6px; align-items:center }
+    .chip{ border:1px solid var(--border); background:var(--panel); padding:6px 10px; border-radius:999px; cursor:pointer; font-size:13px }
+    .chip:focus{ outline:none; box-shadow: var(--ring) }
+
+    /* ======= HERO ======= */
+    .hero{ position:relative; overflow:hidden }
+    .hero::before{
+      content:""; position:absolute; inset:-10% -10% auto -10%; height:360px;
+      background: radial-gradient(600px 200px at 70% -10%, color-mix(in oklab, var(--accent), transparent 85%), transparent 60%),
+                  radial-gradient(500px 200px at 10% -20%, color-mix(in oklab, var(--accent), transparent 92%), transparent 60%);
+      pointer-events:none; z-index:0
+    }
+    .hero .row{ position:relative; z-index:1; display:grid; grid-template-columns: 1.2fr .8fr; gap:28px; align-items:center; padding:72px 0 }
+    .eyebrow{ color:var(--muted); text-transform:uppercase; letter-spacing:.12em; font-size:12px }
+    .title{ font-size:40px; line-height:1.15; margin:8px 0 10px }
+    .sub{ color:var(--muted); margin:0 0 22px; font-size:18px }
+    .actions{ display:flex; gap:12px; flex-wrap:wrap }
+    .btn-primary{ background:var(--accent); color:#0a0d10; padding:12px 16px; border-radius:14px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:8px }
+    .btn-primary:hover{ background:var(--accent-2) }
+    .btn-outline{ border:1px solid var(--border); background:var(--panel); color:var(--text); padding:12px 16px; border-radius:14px; text-decoration:none }
+    .preview{ border:1px solid var(--border); background:var(--panel); border-radius:18px; padding:16px; aspect-ratio: 16/10; display:grid; place-items:center; color:var(--muted) }
+
+    /* ======= FEATURES ======= */
+    .features{ padding: 12px 0 64px }
+    .grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:16px }
+    .card{ background:var(--panel); border:1px solid var(--border); border-radius:18px; padding:18px; min-height:140px; box-shadow: 0 10px 24px rgba(0,0,0,.25) }
+    .card h3{ margin:0 0 6px; font-size:18px }
+    .card p{ margin:0; color:var(--muted) }
+
+    /* ======= TRUST BAR ======= */
+    .trust{ border-top:1px solid var(--border); border-bottom:1px solid var(--border); background: color-mix(in oklab,var(--panel),transparent 40%); }
+    .trust .row{ display:flex; gap:22px; justify-content:center; flex-wrap:wrap; padding:16px 0; color:var(--muted) }
+
+    /* ======= FOOTER ======= */
+    .footer{ background: color-mix(in oklab, var(--bg), black 5%); border-top:1px solid var(--border); padding:26px 0; margin-top: 28px }
+    .footer .links{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-bottom:10px }
+    .footer a{ color:var(--muted); text-decoration:none }
+    .footer a:hover{ color:var(--accent) }
+    .footer .socials{ display:flex; gap:10px; justify-content:center; align-items:center; margin-top:6px }
+    .copy{ text-align:center; color:var(--muted); font-size:13px; margin-top:8px }
+
+    /* ======= RESPONSIVE ======= */
+    @media (max-width: 980px){ .hero .row{ grid-template-columns: 1fr } .title{ font-size:32px } }
+    @media (max-width: 560px){ .grid{ grid-template-columns: 1fr } .title{ font-size:26px } }
+  </style>
+</head>
+<body class="theme-neon">
+  <!-- ======= NAVBAR ======= -->
+  <header class="navbar">
+    <div class="container row">
+      <div class="logo"><span class="logo-badge">B</span>BNPLAY</div>
+      <nav class="nav">
+        <a href="#sell">Сату</a>
+        <a href="#chats">Чаттар</a>
+        <a class="btn-ghost" href="#profile">Профиль</a>
+        <div class="themes" aria-label="Тақырыптар">
+          <button class="chip" data-theme="theme-neon">Неон</button>
+          <button class="chip" data-theme="theme-mono">Моно</button>
+          <button class="chip" data-theme="theme-light">Ашық</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ======= HERO ======= -->
+  <section class="hero">
+    <div class="container row">
+      <div>
+        <div class="eyebrow">қауіпсіз сауда</div>
+        <h1 class="title">Ойын заттары мен қызметтерін <br/> қауіпсіз, жылдам, ыңғайлы сатыңыз</h1>
+        <p class="sub">Тексерілген сатушылар, қорғаулы төлем және жылдам чаттар. BNPLAY — сенімді платформа.</p>
+        <div class="actions">
+          <a class="btn-primary" href="#start">Сатуды бастау →</a>
+          <a class="btn-outline" href="#learn">Толығырақ</a>
+        </div>
+      </div>
+      <div class="preview">Алдын ала көрініс / баннер аймағы</div>
+    </div>
+  </section>
+
+  <!-- ======= FEATURES ======= -->
+  <section class="features container">
+    <div class="grid">
+      <article class="card">
+        <h3>Қауіпсіз мәміле</h3>
+        <p>Эскро жүйесі және тәуекелді азайтатын тексерулер.
+        </p>
+      </article>
+      <article class="card">
+        <h3>Жылдам чат</h3>
+        <p>Сатып алушы және сатушымен бірден байланыс: push-хабарламалар мен боттық көмек.</p>
+      </article>
+      <article class="card">
+        <h3>Төлем таңдауы</h3>
+        <p>Visa, Kaspi, QIWI және басқа да ыңғайлы әдістер қолжетімді.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ======= TRUST BAR ======= -->
+  <section class="trust">
+    <div class="container row">
+      <div>VISA</div>
+      <div>Kaspi</div>
+      <div>QIWI</div>
+      <div>Telegram</div>
+      <div>Instagram</div>
+    </div>
+  </section>
+
+  <!-- ======= FOOTER ======= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="links">
+        <a href="#policy">Пайдаланушы келісімі</a>
+        <a href="#privacy">Құпиялылық саясаты</a>
+        <a href="#cookie">Cookie саясаты</a>
+        <a href="#terms">Сату шарттары</a>
+      </div>
+      <div class="socials">
+        <a href="#tg" aria-label="Telegram">Telegram</a>
+        <span>•</span>
+        <a href="#ig" aria-label="Instagram">Instagram</a>
+      </div>
+      <p class="copy">© 2025 BNPLAY. Барлық құқықтар қорғалған.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Тақырып ауыстыру (Неон / Моно / Ашық)
+    const buttons = document.querySelectorAll('.chip');
+    buttons.forEach(btn=>btn.addEventListener('click',()=>{
+      document.body.className = btn.dataset.theme;
+      try{ localStorage.setItem('bnplay-theme', btn.dataset.theme); }catch(e){}
+    }));
+    // Соңғы таңдауды сақтау
+    try{
+      const saved = localStorage.getItem('bnplay-theme');
+      if(saved) document.body.className = saved;
+    }catch(e){}
+  </script>
+</body>
+</html>
