@@ -1,124 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>667 NBS</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #0d0d0d;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-    p {
-      font-size: 1rem;
-      margin-bottom: 20px;
-      color: #ccc;
-    }
-    .links a {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 20px;
-      color: #fff;
-      border: 1px solid #444;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .links a:hover {
-      background: #fff;
-      color: #000;
-    }
-    .section {
-      margin-top: 40px;
-      text-align: left;
-    }
-    .section h2 {
-      font-size: 1.3rem;
-      border-bottom: 1px solid #333;
-      padding-bottom: 5px;
-      margin-bottom: 15px;
-    }
-    .specs, .music {
-      font-family: monospace;
-      white-space: pre-line;
-      color: #aaa;
-    }
-    .music a {
-      display: block;
-      color: #4da6ff;
-      margin-bottom: 8px;
-      text-decoration: none;
-    }
-    .music a:hover {
-      color: #fff;
-    }
-
-    /* Құсқандай жазу эффектісі */
-    .typing-effect {
-      overflow: hidden;
-      border-right: 2px solid #fff;
-      white-space: nowrap;
-      margin: 0 auto;
-      letter-spacing: 5px;
-      animation: 
-        typing 3s steps(40, end),
-        blink-caret 0.75s step-end infinite;
-    }
-
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: #fff; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>667 NBS | Қазақстандық геймер</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --neon-blue: #00f7ff;
+            --neon-pink: #ff00f7;
+            --dark-bg: #0a0a12;
+            --text-glow: 0 0 10px currentColor;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--dark-bg);
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        h1 {
+            color: var(--neon-blue);
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            text-shadow: var(--text-glow);
+            letter-spacing: 3px;
+            transition: all 0.3s;
+        }
+        
+        h1:hover {
+            text-shadow: 0 0 20px var(--neon-blue);
+        }
+        
+        /* Секцияларға эффект */
+        .section {
+            margin: 3rem 0;
+            padding: 1.5rem;
+            background: rgba(10, 10, 30, 0.5);
+            border-left: 3px solid var(--neon-blue);
+            border-radius: 0 8px 8px 0;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 247, 255, 0.1), transparent);
+            transition: 0.6s;
+        }
+        
+        .section:hover {
+            background: rgba(20, 20, 50, 0.7);
+            transform: translateX(5px);
+        }
+        
+        .section:hover::before {
+            left: 100%;
+        }
+        
+        .section h2 {
+            color: var(--neon-pink);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            text-shadow: var(--text-glow);
+        }
+        
+        /* Сілтемелер */
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 6px;
+            transition: all 0.3s;
+            background: rgba(255,255,255,0.05);
+            font-weight: 500;
+        }
+        
+        .links a:hover {
+            background: rgba(255,255,255,0.2);
+            box-shadow: 0 0 15px rgba(0, 247, 255, 0.5);
+            transform: translateY(-3px);
+        }
+        
+        /* SPECS стилі */
+        .specs {
+            font-family: 'Courier New', monospace;
+            white-space: pre;
+            line-height: 2;
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            padding-left: 1rem;
+            border-left: 2px solid var(--neon-pink);
+        }
+        
+        /* Музыка сілтемелері */
+        .music a {
+            display: block;
+            color: white;
+            margin: 1rem 0;
+            padding: 0.8rem;
+            text-decoration: none;
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .music a:hover {
+            background: rgba(255,255,255,0.1);
+            padding-left: 1.2rem;
+            box-shadow: 0 0 10px rgba(255, 0, 247, 0.3);
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1 class="typing-effect">667 NBS</h1>
-    <p>My name is Nurdaulet, I am 25 years old. I'm from Kazakhstan, and I love to play all kind of games but especially RTS, FPS and RPG.</p>
+    <div class="container">
+        <h1>667 NBS</h1>
+        
+        <p style="text-align: center; max-width: 600px; margin: 0 auto;">
+            My name is Nurdaulet, I am 25 years old. I'm from Kazakhstan, and I love to play all kind of games but especially RTS, FPS and RPG.
+        </p>
 
-    <div class="links">
-      <a href="https://www.instagram.com/vipnbs" target="_blank">Instagram</a>
-      <a href="https://discord.gg/pn3D5c6S" target="_blank">Discord Group</a>
-      <a href="https://tiktok.com/vipnbs_" target="_blank">TikTok</a>
-    </div>
+        <div class="links">
+            <a href="https://www.instagram.com/vipnbs" target="_blank">Instagram</a>
+            <a href="https://discord.gg/6yTXd7ZKFc" target="_blank">Discord</a>
+            <a href="https://tiktok.com/vipnbs_" target="_blank">TikTok</a>
+        </div>
 
-    <div class="section">
-      <h2>➤ S P E C S</h2>
-      <div class="specs">
+        <div class="section">
+            <h2>➤ S P E C S</h2>
+            <div class="specs">
 CPU: Core i5-12400  
 RAM: 32GB DDR4 2667MHz  
 GPU: 2x XFX AMD RX 6600  
 MOUSE: AJAZZ  
 KEYBOARD: MCHOSE
-      </div>
-    </div>
+            </div>
+        </div>
 
-    <div class="section">
-      <h2>➤ M U S I C</h2>
-      <div class="music">
-        <a href="https://www.youtube.com/watch?v=2QaLZz-ZX-k" target="_blank">DE LACURE - ALGABAS (MV)</a>
-        <a href="https://www.youtube.com/watch?v=d1MmdF_fdzI" target="_blank">Qazaq Chill Vibes Vol.5 | by soulai.r</a>
-      </div>
+        <div class="section">
+            <h2>➤ M U S I C</h2>
+            <div class="music">
+                <a href="https://www.youtube.com/watch?v=2QaLZz-ZX-k" target="_blank">DE LACURE - ALGABAS (MV)</a>
+                <a href="https://www.youtube.com/watch?v=d1MmdF_fdzI" target="_blank">Qazaq Chill Vibes Vol.5 | by soulai.r</a>
+            </div>
+        </div>
     </div>
-  </div>
 </body>
 </html>
