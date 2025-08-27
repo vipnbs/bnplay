@@ -2,176 +2,113 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>667 NBS | Қазақстандық геймер</title>
+    <title>Байланысу | 667 NBS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        :root {
-            --neon-blue: #00f7ff;
-            --neon-pink: #ff00f7;
-            --dark-bg: #0a0a12;
-            --text-glow: 0 0 10px currentColor;
+        /* Барлық стильдерді about.html сияқты көшіріңіз */
+        /* Тек форма стильдерін қосамыз */
+        
+        .contact-form {
+            margin-top: 2rem;
         }
         
-        body {
-            margin: 0;
-            padding: 0;
-            background: var(--dark-bg);
-            color: #fff;
-            font-family: 'Rajdhani', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 2rem;
-            position: relative;
-        }
-        
-        h1 {
-            color: var(--neon-blue);
-            font-size: 3rem;
-            text-align: center;
+        .form-group {
             margin-bottom: 1.5rem;
-            text-shadow: var(--text-glow);
-            letter-spacing: 3px;
-            transition: all 0.3s;
         }
         
-        h1:hover {
-            text-shadow: 0 0 20px var(--neon-blue);
-        }
-        
-        /* Секцияларға эффект */
-        .section {
-            margin: 3rem 0;
-            padding: 1.5rem;
-            background: rgba(10, 10, 30, 0.5);
-            border-left: 3px solid var(--neon-blue);
-            border-radius: 0 8px 8px 0;
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 247, 255, 0.1), transparent);
-            transition: 0.6s;
-        }
-        
-        .section:hover {
-            background: rgba(20, 20, 50, 0.7);
-            transform: translateX(5px);
-        }
-        
-        .section:hover::before {
-            left: 100%;
-        }
-        
-        .section h2 {
-            color: var(--neon-pink);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            display: inline-block;
-            text-shadow: var(--text-glow);
-        }
-        
-        /* Сілтемелер */
-        .links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 2.5rem 0;
-            flex-wrap: wrap;
-        }
-        
-        .links a {
-            color: white;
-            text-decoration: none;
-            padding: 0.8rem 1.5rem;
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 6px;
-            transition: all 0.3s;
-            background: rgba(255,255,255,0.05);
-            font-weight: 500;
-        }
-        
-        .links a:hover {
-            background: rgba(255,255,255,0.2);
-            box-shadow: 0 0 15px rgba(0, 247, 255, 0.5);
-            transform: translateY(-3px);
-        }
-        
-        /* SPECS стилі */
-        .specs {
-            font-family: 'Courier New', monospace;
-            white-space: pre;
-            line-height: 2;
-            color: #e0e0e0;
-            font-size: 1.1rem;
-            padding-left: 1rem;
-            border-left: 2px solid var(--neon-pink);
-        }
-        
-        /* Музыка сілтемелері */
-        .music a {
+        .form-group label {
             display: block;
-            color: white;
-            margin: 1rem 0;
+            margin-bottom: 0.5rem;
+            color: var(--neon-blue);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
             padding: 0.8rem;
-            text-decoration: none;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 4px;
+            color: white;
+            font-family: inherit;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: var(--neon-blue);
+            color: var(--dark-bg);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
             transition: all 0.3s;
         }
         
-        .music a:hover {
-            background: rgba(255,255,255,0.1);
-            padding-left: 1.2rem;
-            box-shadow: 0 0 10px rgba(255, 0, 247, 0.3);
+        .submit-btn:hover {
+            background: var(--neon-pink);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 0, 247, 0.3);
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-link">Басты бет</a>
+            <a href="about.html" class="nav-link">Мен туралы</a>
+            <a href="contact.html" class="nav-link active">Байланысу</a>
+        </div>
+    </nav>
+
     <div class="container">
-        <h1>667 NBS</h1>
+        <h1>БАЙЛАНЫСУ</h1>
         
-        <p style="text-align: center; max-width: 600px; margin: 0 auto;">
-            My name is Nurdaulet, I am 25 years old. I'm from Kazakhstan, and I love to play all kind of games but especially RTS, FPS and RPG.
-        </p>
-
-        <div class="links">
-            <a href="https://www.instagram.com/vipnbs" target="_blank">Instagram</a>
-            <a href="https://discord.gg/6yTXd7ZKFc" target="_blank">Discord</a>
-            <a href="https://tiktok.com/vipnbs_" target="_blank">TikTok</a>
-        </div>
-
         <div class="section">
-            <h2>➤ S P E C S</h2>
+            <h2>➤ БАЙЛАНЫС АҚПАРАТЫ</h2>
+            <p>Маған келесі арқылы хабарласа аласыз:</p>
             <div class="specs">
-CPU: Core i5-12400  
-RAM: 32GB DDR4 2667MHz  
-GPU: 2x XFX AMD RX 6600  
-MOUSE: AJAZZ 199
-KEYBOARD: MCHOSE 75pro
+Instagram: <a href="https://www.instagram.com/vipnbs" style="color: var(--neon-blue);">@vipnbs</a>
+Discord: <a href="https://discord.gg/6yTXd7ZKFc" style="color: var(--neon-blue);">667 NBS Server</a>
+Email: example@email.com
             </div>
         </div>
 
         <div class="section">
-            <h2>➤ M U S I C</h2>
-            <div class="music">
-                <a href="https://www.youtube.com/watch?v=2QaLZz-ZX-k" target="_blank">DE LACURE - ALGABAS (MV)</a>
-                <a href="https://www.youtube.com/watch?v=d1MmdF_fdzI" target="_blank">Qazaq Chill Vibes Vol.5 | by soulai.r</a>
-            </div>
+            <h2>➤ ХАТ ЖІБЕРУ</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Аты-жөніңіз</label>
+                    <input type="text" id="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Хабарлама</label>
+                    <textarea id="message" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Жіберу</button>
+            </form>
         </div>
     </div>
+
+    <script>
+        // Форманы өңдеу
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Рахмет! Хабарламаңыз жіберілді. Жақын арада сізге жауап беремін.');
+            this.reset();
+        });
+    </script>
 </body>
 </html>
