@@ -1,114 +1,325 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kk">
 <head>
     <meta charset="UTF-8">
-    <title>Байланысу | 667 NBS</title>
+    <title>667 NBS | Қазақстандық геймер</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        /* Барлық стильдерді about.html сияқты көшіріңіз */
-        /* Тек форма стильдерін қосамыз */
-        
-        .contact-form {
-            margin-top: 2rem;
+        :root {
+            --main-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --secondary-color: #3498db;
+            --light-bg: #ecf0f1;
+            --dark-text: #2c3e50;
+            --light-text: #ffffff;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         
-        .form-group {
-            margin-bottom: 1.5rem;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        .form-group label {
-            display: block;
+        body {
+            font-family: 'Arial', sans-serif;
+            background: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+        
+        /* Header стильдері */
+        header {
+            background: var(--gradient);
+            color: var(--light-text);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .profile-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .profile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--light-text);
+            background: #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--light-text);
+        }
+        
+        .profile-info {
+            text-align: left;
+        }
+        
+        .profile-info h1 {
+            font-size: 2.5rem;
             margin-bottom: 0.5rem;
-            color: var(--neon-blue);
+            color: var(--light-text);
         }
         
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
-            color: white;
-            font-family: inherit;
+        .profile-info p {
+            font-size: 1.1rem;
+            opacity: 0.9;
         }
         
-        .form-group textarea {
-            min-height: 120px;
-            resize: vertical;
+        /* Навигация */
+        nav {
+            background: var(--main-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         
-        .submit-btn {
-            background: var(--neon-blue);
-            color: var(--dark-bg);
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s;
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            padding: 0 2rem;
         }
         
-        .submit-btn:hover {
-            background: var(--neon-pink);
+        .nav-link {
+            color: var(--light-text);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            background: var(--accent-color);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 0, 247, 0.3);
+        }
+        
+        /* Негізгі мазмұн */
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+        
+        .section {
+            background: var(--light-text);
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .section h2 {
+            color: var(--main-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--accent-color);
+            display: inline-block;
+        }
+        
+        /* Социальдық желілер */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .social-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: var(--secondary-color);
+            color: var(--light-text);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .social-btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+        
+        /* SPECS стильдері */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .spec-item {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .spec-item h3 {
+            color: var(--main-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Музыка стильдері */
+        .music-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .music-link {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: var(--light-bg);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--dark-text);
+            transition: all 0.3s ease;
+        }
+        
+        .music-link:hover {
+            background: var(--secondary-color);
+            color: var(--light-text);
+            transform: translateX(5px);
+        }
+        
+        .music-link::before {
+            content: '🎵';
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Футер */
+        footer {
+            background: var(--main-color);
+            color: var(--light-text);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        /* Адаптивтік дизайн */
+        @media (max-width: 768px) {
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-info {
+                text-align: center;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar">
+    <header>
+        <div class="profile-container">
+            <div class="profile">
+                <div class="profile-image">🎮</div>
+                <div class="profile-info">
+                    <h1>667 NBS</h1>
+                    <p>Қазақстандық геймер | RTS, FPS, RPG ойындардың жанкүйері</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
         <div class="nav-container">
-            <a href="index.html" class="nav-link">Басты бет</a>
+            <a href="index.html" class="nav-link active">Басты бет</a>
             <a href="about.html" class="nav-link">Мен туралы</a>
-            <a href="contact.html" class="nav-link active">Байланысу</a>
+            <a href="contact.html" class="nav-link">Байланысу</a>
         </div>
     </nav>
 
-    <div class="container">
-        <h1>БАЙЛАНЫСУ</h1>
-        
-        <div class="section">
-            <h2>➤ БАЙЛАНЫС АҚПАРАТЫ</h2>
-            <p>Маған келесі арқылы хабарласа аласыз:</p>
-            <div class="specs">
-Instagram: <a href="https://www.instagram.com/vipnbs" style="color: var(--neon-blue);">@vipnbs</a>
-Discord: <a href="https://discord.gg/6yTXd7ZKFc" style="color: var(--neon-blue);">667 NBS Server</a>
-Email: example@email.com
+    <main>
+        <section class="section">
+            <h2>Мен туралы</h2>
+            <p>Менің атым Нұрдәулет, мен 25 жастамын. Қазақстаннанмын және мен барлық түрдегі ойындарды ойнағанды жақсы көремін, әсіресе RTS, FPS және RPG жанрларын.</p>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/vipnbs" class="social-btn" target="_blank">Instagram</a>
+                <a href="https://discord.gg/6yTXd7ZKFc" class="social-btn" target="_blank">Discord</a>
+                <a href="https://tiktok.com/vipnbs_" class="social-btn" target="_blank">TikTok</a>
             </div>
-        </div>
+        </section>
 
-        <div class="section">
-            <h2>➤ ХАТ ЖІБЕРУ</h2>
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">Аты-жөніңіз</label>
-                    <input type="text" id="name" required>
+        <section class="section">
+            <h2>Компьютер сипаттамасы</h2>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <h3>Процессор</h3>
+                    <p>Core i5-12400</p>
                 </div>
-                
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" required>
+                <div class="spec-item">
+                    <h3>Жедел жады</h3>
+                    <p>32GB DDR4 2667MHz</p>
                 </div>
-                
-                <div class="form-group">
-                    <label for="message">Хабарлама</label>
-                    <textarea id="message" required></textarea>
+                <div class="spec-item">
+                    <h3>Бейнекарта</h3>
+                    <p>2x XFX AMD RX 6600</p>
                 </div>
-                
-                <button type="submit" class="submit-btn">Жіберу</button>
-            </form>
-        </div>
-    </div>
+                <div class="spec-item">
+                    <h3>Тінтуір</h3>
+                    <p>AJAZZ 199</p>
+                </div>
+                <div class="spec-item">
+                    <h3>Пернетақта</h3>
+                    <p>MCHOSE 75pro</p>
+                </div>
+            </div>
+        </section>
 
-    <script>
-        // Форманы өңдеу
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Рахмет! Хабарламаңыз жіберілді. Жақын арада сізге жауап беремін.');
-            this.reset();
-        });
-    </script>
+        <section class="section">
+            <h2>Сүйікті музыкалар</h2>
+            <div class="music-list">
+                <a href="https://www.youtube.com/watch?v=2QaLZz-ZX-k" class="music-link" target="_blank">DE LACURE - ALGABAS (MV)</a>
+                <a href="https://www.youtube.com/watch?v=d1MmdF_fdzI" class="music-link" target="_blank">Qazaq Chill Vibes Vol.5 | by soulai.r</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="profile-container">
+            <p>© 2024 667 NBS. Барлық құқықтар қорғалған</p>
+        </div>
+    </footer>
 </body>
 </html>
